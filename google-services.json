@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "602161763650",
+    "project_id": "ourlist-21c3a",
+    "storage_bucket": "ourlist-21c3a.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:602161763650:android:c3a0b7ca570c8b08b364db",
+        "android_client_info": {
+          "package_name": "com.ourlist.app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBzPCoYne_FdV0TEvFGO0aTQaNH_2k4zco"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
