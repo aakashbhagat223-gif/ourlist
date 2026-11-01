@@ -1,0 +1,26 @@
+name: Build APK
+on: [workflow_dispatch, push]
+permissions:
+  contents: write
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: 17
+      - uses: gradle/actions/setup-gradle@v4
+        with:
+          gradle-version: 8.7
+      - name: Unpack project
+        run: unzip -q OurList.zip
+      - name: Add Firebase config
+        run: cp google-services.json OurList/app/google-services.json
+      - name: Build
+        run: cd OurList && gradle assembleDebug
+      - name: Publish APK
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh release create v${{ github.run_number }} OurList/app/build/outputs/apk/debug/app-debug.apk --title "OurList build ${{ github.run_number }}" --notes "Install app-debug.apk"
